@@ -58,9 +58,9 @@ class MontadoraController extends ControllerBase {
         
         if ( $dados_documento->validarCampos() ) {
             $dados_documento->insert();
-            print_r(json_encode("Dados inseridos com sucesso"));
+            echo(json_encode("Dados inseridos com sucesso"));            
         } else {
-            print_r(json_encode("Campos tem que ser únicos"));
+            echo(json_encode("Dados inseridos com sucesso"));            
         }                        
     }
     

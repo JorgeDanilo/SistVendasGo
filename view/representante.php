@@ -11,7 +11,7 @@
                     <label for="nome" class="col-sm-2 control-label">Nome do Representante</label>
                     <div class="col-sm-6">
                         <input ng-model="nome"  type="text" 
-                               class="form-control" id="marca" placeholder="Nome do Representante">
+                               class="form-control" id="nome" placeholder="Nome do Representante">
                     </div>
                 </div>
                

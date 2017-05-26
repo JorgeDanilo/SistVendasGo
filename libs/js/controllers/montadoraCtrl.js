@@ -7,7 +7,7 @@ app.controller('montadoraCtrl', function ($scope, $http) {
     
     
     /**
-     * Responsável por salvar os carros e documentos via api rest. 
+     * Responsável por enviar os dados da montadora via api rest.
      */
     $scope.salvar = function() {                 
         
