@@ -14,6 +14,7 @@
         <script src="libs/js/app/app.js"></script>            
         <script src="libs/js/controllers/montadoraCtrl.js"></script>
         <script src="libs/js/controllers/representanteCtrl.js"></script>       
+        <script src="libs/js/controllers/comprasRepresentanteCtrl.js"></script> 
     </head>
 
     <body>        
@@ -32,8 +33,8 @@
                     Cadastrar Representantes
                 </a>
                 
-                <a href="vendas.php" class="btn btn-primary navbar-btn btn-cadastrar-carros">
-                    Vendas
+                <a href="comprasRepresentantes.php" class="btn btn-primary navbar-btn btn-cadastrar-carros">
+                    Compras Representantes
                 </a>
 
             </div>

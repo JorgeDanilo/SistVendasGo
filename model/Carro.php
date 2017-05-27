@@ -106,6 +106,16 @@ class Carro extends ModeloBase {
        return $stmt;                          
        
     }
+    
+    public function listaMontagem() {
+       $database = new DataSource();
+       $db = $database->getConnection();
+       $this->conn = $db;
+       $query = " SELECT * FROM  tb_carro as carro INNER JOIN tb_documento as documento ON documento.fk_id_carro = id_carro;  ";
+       $stmt = $this->conn->query($query);
+       $stmt->execute();  
+       return $stmt;                          
+    }
       
     
 

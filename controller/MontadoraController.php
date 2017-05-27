@@ -76,6 +76,16 @@ class MontadoraController extends ControllerBase {
         
     }
     
+    public function listaDadosMontagem() {
+        $database = new DataSource();
+        $db = $database->getConnection();                
+        $dados_montadora = new Carro( $db );                                      
+        $stmt = $dados_montadora->listaMontagem();                  
+        $dados = $stmt->fetchAll( PDO::FETCH_ASSOC );
+        $resultados = json_encode($dados);
+        echo $resultados;
+    }
+    
     
     public function abreIniciar() {
         include 'view/cadastraCarros.php';

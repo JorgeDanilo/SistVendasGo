@@ -18,7 +18,7 @@
                 <div class="form-group">
                     <div class="col-sm-offset-7">
                         <button ng-click="salvar()" type="submit" 
-                                id="btn-salvar"  class="btn btn-primary ">Cadastrar</button>
+                            id="btn-salvar"  class="btn btn-primary ">Cadastrar</button>
                     </div>
                 </div>
 
