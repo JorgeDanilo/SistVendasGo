@@ -1,5 +1,6 @@
 <?php
-    include_once("controller/IndexController.php");
-    $controller = new IndexController();
-    $controller->index();    
+
+include_once("controller/IndexController.php");
+(new IndexController())->index();
+
 ?>

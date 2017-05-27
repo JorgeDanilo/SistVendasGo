@@ -1,6 +1,6 @@
 <?php
 
-    include_once("controller/MontadoraController.php");
-    $controller = new MontadoraController();
-    $controller->index();    
+include_once("controller/MontadoraController.php");
+(new MontadoraController())->index();    
+
 ?>
