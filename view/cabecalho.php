@@ -10,6 +10,9 @@
         <script src="libs/js/jquery-3.1.1.min.js" type="text/javascript"></script>
         <script src="libs/js/angular.js" type="text/javascript"></script>
         <script src="libs/js/bootstrap.min.js" type="text/javascript"></script>
+        <!-- <script src="libs/js/ui-bootstrap-tpls-2.5.0.min.js" type="text/javascript"></script> -->
+        <!-- <script src="libs/js/angular-ui-bootstrap-modal.js" type="text/javascript"></script> -->
+        
 
         <!-- Imports dos controladores do angular js -->
         <script src="libs/js/app/app.js"></script>            
@@ -42,3 +45,5 @@
         </nav>                
 
         <div class="container">
+
+        <?php require_once 'modalFinalizar.php'; ?>
