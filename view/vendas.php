@@ -1,4 +1,5 @@
 <?php require_once 'cabecalho.php'; ?>
+<?php require_once 'modalFinalizar.php'; ?>
 
 <div class="container" ng-app="SisVendasGo" ng-controller="compraRepresentanteCtrl" ng-init="inicializaDados()">
     <div class="panel panel-primary">
@@ -52,13 +53,13 @@
                             <td>{{ dado.marca_veiculo }}</td>
                             <td>{{ dado.numero_chassi}}</td>
                             <td>{{ dado.placa_veiculo }}</td>
-                            <td><button type="button" class="btn btn-success" ng-click="comprar(dado)">Comprar</button></td>    
+                            <td><button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal" ng-click="comprar(dado)">Comprar</button></td>    
                         </tr>
                     </tbody>
-                </table>
-
-              
+                </table>                        
             </form>
+
+
         </div>
 
     </div>

@@ -10,7 +10,8 @@
         <script src="libs/js/jquery-3.1.1.min.js" type="text/javascript"></script>
         <script src="libs/js/angular.js" type="text/javascript"></script>
         <script src="libs/js/bootstrap.min.js" type="text/javascript"></script>
-        <script src="libs/js/bootstrap.js" type="text/javascript"></script>
+
+        <!-- Imports dos controladores do angular js -->
         <script src="libs/js/app/app.js"></script>            
         <script src="libs/js/controllers/montadoraCtrl.js"></script>
         <script src="libs/js/controllers/representanteCtrl.js"></script>       

@@ -51,10 +51,13 @@ class MontadoraController extends ControllerBase {
         
         $last_id = $dados_montadora->insert();
         
+        // Dados do Documento
+
         $dados_documento->setId_carro($last_id);
         $dados_documento->setMarca($data->marca);
         $dados_documento->setNumero_chassi($data->numero_chassi);
         $dados_documento->setPlaca_veiculo($data->placa_veiculo);
+        $dados_documento->setValor(floatval($data->valor_unitario));
         
         if ( $dados_documento->validarCampos() ) {
             $dados_documento->insert();
@@ -82,6 +85,16 @@ class MontadoraController extends ControllerBase {
         $dados_montadora = new Carro( $db );                                      
         $stmt = $dados_montadora->listaMontagem();                  
         $dados = $stmt->fetchAll( PDO::FETCH_ASSOC );
+        $resultados = json_encode($dados);
+        echo $resultados;
+    }
+
+    public function verificaCorVeiculos( ) {        
+        $database = new DataSource();
+        $db = $database->getConnection();   
+        $dados_montadora = new Carro($db);
+        $stmt = $dados_montadora->verificaCorVeiculos();
+        $dados = $stmt->fetchAll(PDO::FETCH_ASSOC);
         $resultados = json_encode($dados);
         echo $resultados;
     }

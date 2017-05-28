@@ -28,6 +28,14 @@
                     </div>
                 </div>
 
+                <div class="form-group">
+                    <label for="valor_unitario" class="col-sm-2 control-label">Valor</label>
+                    <div class="col-sm-6">
+                        <input ng-model="valor_unitario"  type="text" 
+                               class="form-control" id="valor_unitario" placeholder="R$ Valor">
+                    </div>
+                </div>
+
 
                 <div class="form-group">
                     <div class="col-sm-offset-7">

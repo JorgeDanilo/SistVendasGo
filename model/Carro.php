@@ -116,6 +116,17 @@ class Carro extends ModeloBase {
        $stmt->execute();  
        return $stmt;                          
     }
+
+    public function verificaCorVeiculos( ) {
+       $database = new DataSource();
+       $db = $database->getConnection();
+       $this->conn = $db;
+       $query = "SELECT cor, count(cor) as contador FROM SisVendasGo.tb_carro GROUP BY cor HAVING (SELECT MAX(counted) FROM (SELECT COUNT(*) AS counted FROM tb_carro GROUP BY cor) AS counts ) = count(cor)";
+
+       $stmt = $this->conn->query($query);
+       $stmt->execute();
+       return $stmt;
+    }
       
     
 

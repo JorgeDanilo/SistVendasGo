@@ -19,9 +19,14 @@ app.controller("compraRepresentanteCtrl", function($scope, $http) {
         });        
     };
     
-    $scope.comprar = function( dadosMontagem ) {
-        console.log($scope.id_representante);
-        console.log(dadosMontagem);
+    $scope.comprar = function() {
+
+        $http({
+            method : 'POST',
+            url : 'comprasRepresentantes.php?action=comprarVeiculo',            
+        }).then(function success(response) {
+            console.log(response);
+        });
     };
     
     

@@ -12,6 +12,7 @@ class Documento extends ModeloBase {
     private $marca;
     private $numero_chassi;
     private $placa_veiculo;
+    private $valor;
     
     private $conn;
     private $table_name = "tb_documento";
@@ -37,6 +38,10 @@ class Documento extends ModeloBase {
         return $this->placa_veiculo;
     }
 
+    function getValor() {
+        return $this->valor;
+    }
+
     function setId_carro($id_carro) {
         $this->id_carro = $id_carro;
     }
@@ -52,17 +57,22 @@ class Documento extends ModeloBase {
     function setPlaca_veiculo($placa_veiculo) {
         $this->placa_veiculo = $placa_veiculo;
     }
+
+    function setValor($valor) {
+        $this->valor = $valor;
+    }
     
     public function insert() {
         
-        $query = "INSERT INTO ". $this->table_name . " SET fk_id_carro=:fk_id_carro, marca_veiculo=:marca_veiculo, numero_chassi=:numero_chassi, placa_veiculo=:placa_veiculo";
+        $query = "INSERT INTO ". $this->table_name . " SET fk_id_carro=:fk_id_carro, marca_veiculo=:marca_veiculo, numero_chassi=:numero_chassi, placa_veiculo=:placa_veiculo, valor=:valor";
         
-        $stmt = $this->conn->prepare($query);
+        $stmt = $this->conn->prepare( $query );
         
         $this->id_carro = htmlspecialchars(strip_tags($this->id_carro));
         $this->marca_veiculo = htmlspecialchars(strip_tags($this->marca));
         $this->numero_chassi = htmlspecialchars(strip_tags($this->numero_chassi));
         $this->placa_veiculo = htmlspecialchars(strip_tags($this->placa_veiculo));
+        $this->valor = htmlspecialchars(strip_tags($this->valor));
         
         // bind dos valores
         
@@ -70,6 +80,7 @@ class Documento extends ModeloBase {
         $stmt->bindParam(":marca_veiculo",  $this->marca_veiculo);
         $stmt->bindParam(":numero_chassi", $this->numero_chassi);
         $stmt->bindParam(":placa_veiculo", $this->placa_veiculo);  
+        $stmt->bindParam(":valor", $this->valor);
         
         if ( $stmt->execute() ) {            
             return true;

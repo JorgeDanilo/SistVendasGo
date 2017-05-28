@@ -21,7 +21,8 @@ app.controller('montadoraCtrl', function ($scope, $http) {
                opcionais: $scope.opcionais,
                marca : $scope.marca,
                numero_chassi : $scope.numero_chassi,
-               placa_veiculo : $scope.placa_veiculo                           
+               placa_veiculo : $scope.placa_veiculo,
+               valor_unitario : $scope.valor_unitario                           
            }
         }).then(function ( response ) {
             alert(JSON.parse(response.data));
