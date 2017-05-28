@@ -54,7 +54,7 @@
                             <td>{{ dado.numero_chassi}}</td>
                             <td>{{ dado.placa_veiculo }}</td>
                             <td>
-                                <button type="button" class="btn btn-success" id ="btnComprar" ng-click="comprar(dado)">Comprar</button>
+                                <button type="button" class="btn btn-success" id ="btnComprar" ng-click="abrirModalFinalizarCompra(dado)">Comprar</button>
                             </td>    
                         </tr>
                     </tbody>
@@ -85,7 +85,7 @@
           <p><label>Marca Carro : </label>{{dadosFinalizarCompras.ano_fabricacao}}</p>
           <p><label>Número Chassi: </label>{{dadosFinalizarCompras.numero_chassi}}</p>
           <p><label>Placa Veículo: </label>{{dadosFinalizarCompras.placa_veiculo}}</p>
-          <p><label>Valor: </label>{{dadosFinalizarCompras.valor}}</p>
+          <p><label>Valor: </label>{{valorTotalCalculado | currency : 'R$':2}}</p>
           <br>
           <p><label>Representante: </label>{{dadosFinalizarCompras.ano_fabricacao}}</p>
           

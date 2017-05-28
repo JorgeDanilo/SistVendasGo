@@ -127,6 +127,17 @@ class Carro extends ModeloBase {
        $stmt->execute();
        return $stmt;
     }
+
+    public function verificaAnoVeiculos() {
+       $database = new DataSource();
+       $db = $database->getConnection();
+       $this->conn = $db;
+       $query = "SELECT ano_fabricacao , count(ano_fabricacao) as contador FROM tb_carro GROUP BY ano_fabricacao HAVING contador = 1";
+       $stmt = $this->conn->query($query);
+       $stmt->execute();
+       return $stmt;
+
+    }
       
     
 

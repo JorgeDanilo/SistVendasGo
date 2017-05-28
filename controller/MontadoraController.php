@@ -98,6 +98,16 @@ class MontadoraController extends ControllerBase {
         $resultados = json_encode($dados);
         echo $resultados;
     }
+
+    public function verificaAnoVeiculos() {
+        $database = new DataSource();
+        $db = $database->getConnection();   
+        $dados_montadora = new Carro($db);
+        $stmt = $dados_montadora->verificaAnoVeiculos();
+        $dados = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $resultados = json_encode($dados);
+        echo $resultados;
+    }
     
     
     public function abreIniciar() {

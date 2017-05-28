@@ -17,8 +17,8 @@ class VendasController extends ControllerBase {
             die();
         }
 
-        if ( isset($_GET['action']) && $_GET['action'] == 'comprarVeiculo' ) {
-            $this->comprarVeiculo();
+        if ( isset($_GET['action']) && $_GET['action'] == 'buscarDadosMontagem' ) {
+            $this->buscarDadosMontagem();
             die();
         }
 
@@ -34,11 +34,13 @@ class VendasController extends ControllerBase {
     /**
     * Responsável por realizar compra o veículo.
     */
-    public function comprarVeiculo() {
+    public function buscarDadosMontagem() {
         
         $montadoraController = new MontadoraController();
 
         $consulta = $montadoraController->verificaCorVeiculos();
+
+        //$consulta_ano = $montadoraController->verificaAnoVeiculos();
 
 
 

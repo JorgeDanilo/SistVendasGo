@@ -17,8 +17,7 @@ app.controller("compraRepresentanteCtrl", function($scope, $http) {
         $http({
            method: 'GET',
            url: 'representante.php?action=listaMontagem'
-        }).then(function success(response) {
-           console.log(response);
+        }).then(function success(response) {           
            $scope.dadosMontagem = response.data;
         });        
     };
@@ -26,7 +25,7 @@ app.controller("compraRepresentanteCtrl", function($scope, $http) {
     /**
     * Responsável por realizar o fluxo de comprar.
     */       
-    $scope.comprar = function( dadosMontagem ) {
+    $scope.abrirModalFinalizarCompra = function( dadosMontagem ) {
 
         $scope.dadosFinalizarCompras = dadosMontagem;        
         $scope.corVeiculoSelecionado = $scope.dadosFinalizarCompras.cor;
@@ -34,28 +33,25 @@ app.controller("compraRepresentanteCtrl", function($scope, $http) {
        
         $http({
             method : 'POST',
-            url : 'comprasRepresentantes.php?action=comprarVeiculo',            
+            url : 'comprasRepresentantes.php?action=buscarDadosMontagem',            
         }).then(function success(response) {            
-            $scope.corMaiorSaida = response.data[0].cor;             
-            console.log($scope.corMaiorSaida);
-            if ( $scope.corVeiculoSelecionado == $scope.corMaiorSaida ) {
-                realizaCalculoValor();    
-            }
-            
-            
+            console.log(response);
+            $scope.corMaiorSaida = response.data[0].cor;                         
+            realizaCalculoValor( $scope.corVeiculoSelecionado, $scope.corMaiorSaida );                            
         });
     };
 
     /**
     * Responsável por realizar o calculo do valor total.
     */
-    function realizaCalculoValor() {                
-        $porcentagem = (18/100) * $scope.valorVeiculoSelecionado;
-        $scope.valorTotalCalculado = $scope.valorVeiculoSelecionado - $porcentagem;
-
-        console.log($scope.valorTotalCalculado);
-
-
+    function realizaCalculoValor( corVeiculoSelecionado, corMaiorSaida ) {
+        
+        if ( corVeiculoSelecionado == corMaiorSaida ) {                                
+            $porcentagem = (18/100) * $scope.valorVeiculoSelecionado;
+            $scope.valorTotalCalculado = $scope.valorVeiculoSelecionado - $porcentagem;            
+        } else {
+            $scope.valorTotalCalculado = $scope.valorVeiculoSelecionado;
+        }
         // Responsável por abrir a modal.
         $("#myModal").modal();
     }
