@@ -92,7 +92,7 @@
         </div>
 
         <div class="modal-footer">
-          <button type="button" class="btn btn-success" data-dismiss="modal">Finalizar Compra</button>
+          <button type="button" class="btn btn-success" data-dismiss="modal" ng-click="finalizarVenda()">Finalizar Compra</button>
           <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
         </div>
       </div>

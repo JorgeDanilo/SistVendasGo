@@ -1,8 +1,15 @@
 <div class="panel panel-primary">
 
+        <script type="text/javascript">
+            jQuery(function($) {
+            $("#placa_veiculo").mask("aaa-9999");
+        });
+
+        </script>
+
         <div class="panel-heading ">Cadastra Documento</div>
         <div class="panel-body">
-            <form class="form-horizontal">
+            <form class="form-horizontal" >
 
                 <div class="form-group">
                     <label for="marca" class="col-sm-2 control-label">Marca</label>
@@ -24,7 +31,7 @@
                     <label for="placa_veiculo" class="col-sm-2 control-label">Placa Veículo</label>
                     <div class="col-sm-6">
                         <input ng-model="placa_veiculo"  type="text" 
-                               class="form-control" id="placa_veiculo" placeholder="Placa Veículo">
+                               class="form-control" name="placa_veiculo" id="placa_veiculo" placeholder="Placa Veículo" size="10">
                     </div>
                 </div>
 
@@ -44,6 +51,7 @@
                     </div>
                 </div>
 
+                 
 
             </form>
         </div>

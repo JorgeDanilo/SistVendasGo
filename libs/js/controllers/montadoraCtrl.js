@@ -4,7 +4,7 @@
  * @type type
  */
 app.controller('montadoraCtrl', function ($scope, $http) {
-    
+       
     
     /**
      * Responsável por enviar os dados da montadora via api rest.
@@ -25,7 +25,7 @@ app.controller('montadoraCtrl', function ($scope, $http) {
                valor_unitario : $scope.valor_unitario                           
            }
         }).then(function ( response ) {
-            alert(JSON.parse(response.data));
+            alert(JSON.parse(response.data));          
         }, function error(response) {
             console.log(response);
         });                
@@ -67,5 +67,19 @@ app.controller('montadoraCtrl', function ($scope, $http) {
         {value : "Sim", model : 1},
         {value : "Não", model : 0}
       ];
+
+
+      $scope.geraNumeroChassiAleatorio = function() {
+        var text = "";
+        var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+
+        for( var i=0; i < 37; i++ ) {
+          text += possible.charAt(Math.floor(Math.random() * possible.length));
+        }
+
+        $scope.numero_chassi = text;
+        console.log(text);
+        
+      }
 
 });

@@ -3,7 +3,7 @@
 
 <?php require_once 'cabecalho.php'; ?>
 
-<div class="container" ng-app="SisVendasGo" ng-controller="montadoraCtrl">
+<div class="container" ng-app="SisVendasGo" ng-controller="montadoraCtrl" ng-init="geraNumeroChassiAleatorio()">
 
     <div class="alert alert-info fade out" id="bsalert">
         <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
@@ -53,6 +53,7 @@
             </form> 
         </div>
     </div>
+    
 
     <!-- Include do painel de cadastro de Documento -->
     <?php require_once'painelCadDocumento.php' ?>

@@ -1,7 +1,6 @@
 
 app.controller("compraRepresentanteCtrl", function($scope, $http) {
 
-
     /**
     * Responsável por iniciar os dados ao abrir a página.
     */  
@@ -36,29 +35,16 @@ app.controller("compraRepresentanteCtrl", function($scope, $http) {
             method : 'POST',
             url : 'comprasRepresentantes.php?action=buscarDadosMontagem',            
         }).then(function success(response) {                       
-           
-            $http({
-                method : 'GET',
-                url: 'comprasRepresentantes.php?action=verificaAnoVeiculos',
-            }).then(function success(success) {                                
-                angular.forEach(success.data, function(dados) {                           
-                     if ( dados.ano_fabricacao == $scope.ano_fabricacaoVeiculoSelecionado ) {
-                        $porcentagem = (15/100) * $scope.valorVeiculoSelecionado;                        
-                        $scope.valorTotalCalculado = parseFloat($scope.valorVeiculoSelecionado) + $porcentagem;                        
-                    }    
-                })
-                              
-            })                    
-
+            realizaCalculoAno();                        
             $scope.corMaiorSaida = response.data[0].cor;                                    
-            realizaCalculoValor( $scope.corVeiculoSelecionado, $scope.corMaiorSaida );                            
+            realizaCalculoValorDepedendoCor( $scope.corVeiculoSelecionado, $scope.corMaiorSaida );                            
         });
     };
 
     /**
     * Responsável por realizar o calculo do valor total.
     */
-    function realizaCalculoValor( corVeiculoSelecionado, corMaiorSaida ) {    
+    function realizaCalculoValorDepedendoCor( corVeiculoSelecionado, corMaiorSaida ) {    
         
         if ( corVeiculoSelecionado == corMaiorSaida ) {                                
             $porcentagem = (18/100) * $scope.valorVeiculoSelecionado;
@@ -69,6 +55,47 @@ app.controller("compraRepresentanteCtrl", function($scope, $http) {
 
         // Responsável por abrir a modal.
         $("#myModal").modal();
+    }
+
+    function realizaCalculoAno() {
+        $http({
+                method : 'GET',
+                url: 'comprasRepresentantes.php?action=verificaAnoVeiculos',
+            }).then(function success(success) {                                
+                angular.forEach(success.data, function(dados) {                           
+                     if ( dados.ano_fabricacao == $scope.ano_fabricacaoVeiculoSelecionado ) {
+                        $porcentagem = (15/100) * $scope.valorVeiculoSelecionado;                        
+                        $scope.valorTotalCalculado = parseFloat($scope.valorVeiculoSelecionado) + $porcentagem;                        
+                    }    
+                })
+                              
+            })   
+    }
+
+
+    $scope.finalizarVenda = function( ) {
+        
+        console.log($scope.dadosFinalizarCompras);
+        console.log($scope.id_representante);
+        console.log($scope.valorTotalCalculado);
+
+        var fk_id_documento = $scope.dadosFinalizarCompras.id_documento;
+        var fk_id_representante = $scope.id_representante;
+        var valorTotal = $scope.valorTotalCalculado;
+
+        $http({
+            method: 'POST',
+            url : 'comprasRepresentantes.php?action=finalizarVenda',
+            data : {
+                fk_id_documento : fk_id_documento,
+                fk_id_representante: fk_id_representante,
+                valorTotal : valorTotal                
+            }
+        }).then(function success(response) {
+             alert(JSON.parse(response.data));          
+        });
+
+
     }
     
 });
