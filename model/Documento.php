@@ -2,9 +2,9 @@
 
 
 /**
- * Description of Documento
+ * Classe modelo Documento.
  *
- * @author danilo
+ * @author Jorge Danilo Gomes da Silva
  */
 class Documento extends ModeloBase {
     

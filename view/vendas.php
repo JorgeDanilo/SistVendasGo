@@ -14,8 +14,9 @@
                         <select class="form-control" ng-model="id_representante" >
                             <option>--Selecione--</option>
                             <option ng-repeat="representante in representantes " value="{{representante.id_representante}}">
-                                {{ representante.nome_representante }}
+                                {{ representante.nome_representante }}                                
                             </option>
+
                         </select>
                     </div>
                 </div>
@@ -88,8 +89,6 @@
           <p><label>Número Chassi: </label>{{dadosFinalizarCompras.numero_chassi}}</p>
           <p><label>Placa Veículo: </label>{{dadosFinalizarCompras.placa_veiculo}}</p>
           <p><label>Valor: </label>{{valorTotalCalculado | currency : 'R$'}}</p>
-          <br>
-          <p><label>Representante: </label>{{dadosFinalizarCompras.ano_fabricacao}}</p>
           
         </div>
 

@@ -10,6 +10,7 @@ app.controller('representanteCtrl', function( $scope, $http ) {
      * @returns {undefined}
      */
     $scope.salvar = function() {   
+        console.log($scope.nome);
       if ( validarCamposObrigatorios($scope.nome) ) {
           $http({
              method: 'POST',
@@ -31,7 +32,7 @@ app.controller('representanteCtrl', function( $scope, $http ) {
     }
     
     function validarCamposObrigatorios(nome) {
-        if ( angular.isUndefined(nome) || nome != "" ) {
+        if ( angular.isUndefined(nome) || nome == "" ) {
             $('#modalCamposObrigatorios').modal();
             $scope.msg = "O nome do representante é obrigatório";
             return false;

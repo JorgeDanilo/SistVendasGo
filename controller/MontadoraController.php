@@ -63,7 +63,7 @@ class MontadoraController extends ControllerBase {
             $dados_documento->insert();
             echo(json_encode("Dados inseridos com sucesso"));            
         } else {
-            echo(json_encode("Dados tem que ser únicos"));            
+            echo(json_encode("Marca, Número Chassi e Placa do veículo tem que ser únicos."));            
         }
 
         die();                        

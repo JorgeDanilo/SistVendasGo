@@ -99,6 +99,7 @@ app.controller("compraRepresentanteCtrl", function($scope, $http) {
 
 
     }
+    
 
     function validarCamposObrigatorios(id_representante) {
         if ( angular.isUndefined(id_representante) || id_representante == '--Selecione--' ) {
