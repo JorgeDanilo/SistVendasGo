@@ -1,6 +1,6 @@
 <?php require_once 'cabecalho.php'; ?>
 
-<div class="container" ng-app="SisVendasGo" ng-controller="compraRepresentanteCtrl" ng-init="inicializaDados()">
+<div class="container" ng-app="SisVendasGo" ng-controller="compraRepresentanteCtrl" ng-init=" inicializaDados()">
 
     <div class="panel panel-primary">
 
@@ -49,7 +49,8 @@
                             <td>{{ dado.ano_fabricacao }}</td>
                             <td>{{ dado.ano_modelo }}</td>
                             <td>{{ dado.cor }}</td>
-                            <td>{{ dado.opcionais }}</td>
+                            <td ng-if="dado.opcionais == 1">Sim</td>
+                            <td ng-if="dado.opcionais == 0">Não</td>
                             <td>{{ dado.marca_veiculo }}</td>
                             <td>{{ dado.numero_chassi}}</td>
                             <td>{{ dado.placa_veiculo }}</td>
@@ -100,6 +101,8 @@
     </div>
   </div>
 
+
+<?php require_once 'modalCamposObrigatorios.php'; ?>
 
 </div>
 

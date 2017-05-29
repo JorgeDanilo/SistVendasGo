@@ -18,7 +18,8 @@
                     <td>{{ dado.ano_fabricacao }}</td>
                     <td>{{ dado.ano_modelo }}</td>
                     <td>{{ dado.cor }}</td>
-                    <td>{{ dado.opcionais }}</td>
+                    <td ng-if="dado.opcionais == 1">Sim</td>
+                    <td ng-if="dado.opcionais == 0">Não</td>
                 </tr>
             </tbody>
         </table>

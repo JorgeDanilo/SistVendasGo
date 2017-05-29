@@ -9,26 +9,27 @@ app.controller('montadoraCtrl', function ($scope, $http) {
      * Responsável por enviar os dados da montadora via api rest.
      */
     $scope.salvar = function() {                 
-        
-        $http({
-           method: 'POST',
-           url : 'montadora.php?action=save',
-           data : {
-               ano_carro : $scope.ano_carro,
-               ano_modelo : $scope.ano_modelo,
-               cor : $scope.cor,
-               opcionais: $scope.opcionais,
-               marca : $scope.marca,
-               numero_chassi : $scope.numero_chassi,
-               placa_veiculo : $scope.placa_veiculo,
-               valor_unitario : $scope.valor_unitario                           
-           }
-        }).then(function ( response ) {
-            $scope.mensagem = JSON.parse(response.data);
-            $("#modalSuccess").modal();          
-        }, function error(response) {
-            console.log(response);
-        });                
+        if ( validarCamposObrigatorios() ) {
+            $http({
+             method: 'POST',
+             url : 'montadora.php?action=save',
+             data : {
+                 ano_carro : $scope.ano_carro,
+                 ano_modelo : $scope.ano_modelo,
+                 cor : $scope.cor,
+                 opcionais: $scope.opcionais,
+                 marca : $scope.marca,
+                 numero_chassi : $scope.numero_chassi,
+                 placa_veiculo : $scope.placa_veiculo,
+                 valor_unitario : $scope.valor_unitario                           
+             }
+            }).then(function ( response ) {
+                $scope.mensagem = JSON.parse(response.data);
+                $("#modalSuccess").modal();          
+            }, function error(response) {
+                console.log(response);
+            });  
+        }                      
     }
     
     
@@ -78,9 +79,16 @@ app.controller('montadoraCtrl', function ($scope, $http) {
           text += possible.charAt(Math.floor(Math.random() * possible.length));
         }
 
-        $scope.numero_chassi = text;
-        console.log(text);
-        
+        $scope.numero_chassi = text;                
       }
+
+      function validarCamposObrigatorios(nome) {
+        if ( angular.isUndefined(nome) || nome != "" ) {
+            $('#modalCamposObrigatorios').modal();
+            $scope.msg = "Campos obrigatórios não preenchidos";
+            return false;
+        }
+        return true;
+    } 
 
 });

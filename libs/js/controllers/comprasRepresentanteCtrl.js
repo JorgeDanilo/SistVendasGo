@@ -23,22 +23,24 @@ app.controller("compraRepresentanteCtrl", function($scope, $http) {
     /**
     * Responsável por realizar o fluxo de comprar.
     */       
-    $scope.abrirModalFinalizarCompra = function( dadosMontagem ) {
+    $scope.abrirModalFinalizarCompra = function( dadosMontagem ) {    
 
-        $scope.dadosFinalizarCompras = dadosMontagem;        
-        $scope.corVeiculoSelecionado = $scope.dadosFinalizarCompras.cor;
-        $scope.valorVeiculoSelecionado = $scope.dadosFinalizarCompras.valor;
-        $scope.ano_fabricacaoVeiculoSelecionado = $scope.dadosFinalizarCompras.ano_fabricacao;
-        $scope.anoFabricacaoUnico = [];
-       
-        $http({
-            method : 'POST',
-            url : 'comprasRepresentantes.php?action=buscarDadosMontagem',            
-        }).then(function success(response) {                       
-            realizaCalculoAno();                        
-            $scope.corMaiorSaida = response.data[0].cor;                                    
-            realizaCalculoValorDepedendoCor( $scope.corVeiculoSelecionado, $scope.corMaiorSaida );                            
-        });
+        if ( validarCamposObrigatorios($scope.id_representante) ) {
+            $scope.dadosFinalizarCompras = dadosMontagem;        
+            $scope.corVeiculoSelecionado = $scope.dadosFinalizarCompras.cor;
+            $scope.valorVeiculoSelecionado = $scope.dadosFinalizarCompras.valor;
+            $scope.ano_fabricacaoVeiculoSelecionado = $scope.dadosFinalizarCompras.ano_fabricacao;
+            $scope.anoFabricacaoUnico = [];    
+           
+            $http({
+                method : 'POST',
+                url : 'comprasRepresentantes.php?action=buscarDadosMontagem',            
+            }).then(function success(response) {                       
+                realizaCalculoAno();                        
+                $scope.corMaiorSaida = response.data[0].cor;                                    
+                realizaCalculoValorDepedendoCor( $scope.corVeiculoSelecionado, $scope.corMaiorSaida );                            
+            });
+        }
     };
 
     /**
@@ -96,6 +98,16 @@ app.controller("compraRepresentanteCtrl", function($scope, $http) {
         });
 
 
+    }
+
+    function validarCamposObrigatorios(id_representante) {
+        if ( angular.isUndefined(id_representante) || id_representante == '--Selecione--' ) {
+            $('#modalCamposObrigatorios').modal();
+            $scope.msg = "Por favor, Selecione um representante";
+            return false;
+        }
+
+        return true;
     }
     
 });
