@@ -63,8 +63,10 @@ class MontadoraController extends ControllerBase {
             $dados_documento->insert();
             echo(json_encode("Dados inseridos com sucesso"));            
         } else {
-            echo(json_encode("Desculpe, ocorreu um erro"));            
-        }                        
+            echo(json_encode("Dados tem que ser únicos"));            
+        }
+
+        die();                        
     }
     
      public function listaTodos() {     

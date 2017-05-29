@@ -24,7 +24,7 @@ app.controller('montadoraCtrl', function ($scope, $http) {
                valor_unitario : $scope.valor_unitario                           
            }
         }).then(function ( response ) {
-            // alert(JSON.parse(response.data));
+            $scope.mensagem = JSON.parse(response.data);
             $("#modalSuccess").modal();          
         }, function error(response) {
             console.log(response);

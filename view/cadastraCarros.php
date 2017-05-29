@@ -60,7 +60,7 @@
           <h4 class="modal-title">Informação</h4>
         </div>
         <div class="modal-body">
-          Cadastrado com Sucesso.
+          {{mensagem}}
         </div>
         <div class="modal-footer">          
           <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="clean()">Ok</button>
