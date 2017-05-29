@@ -58,7 +58,8 @@ app.controller('montadoraCtrl', function ($scope, $http) {
         $scope.marca = "";
         $scope.numero_chassi = "";
         $scope.placa_veiculo = "";
-        $scope.valor_unitario = "";        
+        $scope.valor_unitario = "";    
+        $scope.geraNumeroChassiAleatorio();    
     }
     
     
@@ -82,8 +83,15 @@ app.controller('montadoraCtrl', function ($scope, $http) {
         $scope.numero_chassi = text;                
       }
 
-      function validarCamposObrigatorios(nome) {
-        if ( angular.isUndefined(nome) || nome != "" ) {
+      function validarCamposObrigatorios() {        
+        if ( angular.isUndefined($scope.ano_carro) || $scope.ano_carro == "" || $scope.ano_carro == null 
+            || angular.isUndefined($scope.ano_modelo) || $scope.ano_modelo == "" || $scope.ano_modelo == null
+            || angular.isUndefined($scope.cor) || $scope.cor == "" 
+            || angular.isUndefined($scope.opcionais) || $scope.opcionais == ""
+            || angular.isUndefined($scope.marca) || $scope.marca == ""
+            || angular.isUndefined($scope.numero_chassi) || $scope.numero_chassi == ""
+            || angular.isUndefined($scope.placa_veiculo) || $scope.placa_veiculo == ""
+            || angular.isUndefined($scope.valor_unitario) || $scope.valor_unitario == "" ) {
             $('#modalCamposObrigatorios').modal();
             $scope.msg = "Campos obrigatórios não preenchidos";
             return false;
