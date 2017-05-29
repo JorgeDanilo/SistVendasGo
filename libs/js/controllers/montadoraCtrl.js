@@ -3,8 +3,7 @@
  * Controlador Responsável pelos fluxos pertinentes ao processo da montadora.
  * @type type
  */
-app.controller('montadoraCtrl', function ($scope, $http) {
-       
+app.controller('montadoraCtrl', function ($scope, $http) {          
     
     /**
      * Responsável por enviar os dados da montadora via api rest.
@@ -25,7 +24,8 @@ app.controller('montadoraCtrl', function ($scope, $http) {
                valor_unitario : $scope.valor_unitario                           
            }
         }).then(function ( response ) {
-            alert(JSON.parse(response.data));          
+            // alert(JSON.parse(response.data));
+            $("#modalSuccess").modal();          
         }, function error(response) {
             console.log(response);
         });                
@@ -56,7 +56,8 @@ app.controller('montadoraCtrl', function ($scope, $http) {
         $scope.opcionais = "";
         $scope.marca = "";
         $scope.numero_chassi = "";
-        $scope.placa_veiculo = "";        
+        $scope.placa_veiculo = "";
+        $scope.valor_unitario = "";        
     }
     
     

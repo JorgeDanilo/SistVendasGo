@@ -5,12 +5,6 @@
 
 <div class="container" ng-app="SisVendasGo" ng-controller="montadoraCtrl" ng-init="geraNumeroChassiAleatorio()">
 
-    <div class="alert alert-info fade out" id="bsalert">
-        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-        <strong>Informação!</strong> Adicionado com sucesso!
-    </div>
-
-
     <div class="panel panel-primary">
 
         <div class="panel-heading ">Cadastra Montadora</div>
@@ -57,6 +51,23 @@
 
     <!-- Include do painel de cadastro de Documento -->
     <?php require_once'painelCadDocumento.php' ?>
+
+    <div class="modal fade" id="modalSuccess" role="dialog" >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h4 class="modal-title">Informação</h4>
+        </div>
+        <div class="modal-body">
+          Cadastrado com Sucesso.
+        </div>
+        <div class="modal-footer">          
+          <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="clean()">Ok</button>
+        </div>
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+    </div>
 
     <!-- Include do ropadé da pagina -->
     <?php require_once 'rodape.php'; ?>   

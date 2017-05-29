@@ -26,12 +26,7 @@ class Venda extends ModeloBase {
             $this->id_documento = htmlspecialchars(strip_tags($this->id_documento));
             $this->dataVenda = htmlspecialchars(strip_tags($this->dataVenda));
             $this->id_representante = htmlspecialchars(strip_tags($this->id_representante));
-            $this->valorTotal = htmlspecialchars(strip_tags($this->valorTotal));
-
-            print_r($this->id_documento . "\n");
-            print_r($this->dataVenda . "\n");
-            print_r($this->id_representante . "\n");
-            print_r($this->valorTotal . "\n");
+            $this->valorTotal = htmlspecialchars(strip_tags($this->valorTotal));        
             
             // bind dos valores
             $stmt->bindParam( ":fk_tb_documento", $this->id_documento );

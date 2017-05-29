@@ -43,5 +43,3 @@
         </nav>                
 
         <div class="container">
-
-        <?php require_once 'modalFinalizar.php'; ?>
