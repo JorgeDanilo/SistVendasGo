@@ -85,7 +85,7 @@
           <p><label>Marca Carro : </label>{{dadosFinalizarCompras.ano_fabricacao}}</p>
           <p><label>Número Chassi: </label>{{dadosFinalizarCompras.numero_chassi}}</p>
           <p><label>Placa Veículo: </label>{{dadosFinalizarCompras.placa_veiculo}}</p>
-          <p><label>Valor: </label>{{valorTotalCalculado | currency : 'R$':2}}</p>
+          <p><label>Valor: </label>{{valorTotalCalculado | currency : 'R$'}}</p>
           <br>
           <p><label>Representante: </label>{{dadosFinalizarCompras.ano_fabricacao}}</p>
           

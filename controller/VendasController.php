@@ -22,6 +22,11 @@ class VendasController extends ControllerBase {
             die();
         }
 
+        if ( isset($_GET['action']) && $_GET['action'] == 'verificaAnoVeiculos' ) {
+            $this->verificaAnoVeiculos();
+            die();
+        }
+
         else {            
             $this->abreIniciar();        
         }      
@@ -42,8 +47,11 @@ class VendasController extends ControllerBase {
 
         //$consulta_ano = $montadoraController->verificaAnoVeiculos();
 
+    }
 
-
+    public function verificaAnoVeiculos() {
+        $montadoraController = new MontadoraController();
+        $consulta_ano = $montadoraController->verificaAnoVeiculos();
     }
     
     
