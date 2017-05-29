@@ -44,8 +44,8 @@
                             <th>Ações</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr ng-repeat="dado in dadosMontagem">
+                    <tbody>                        
+                        <tr dir-paginate="dado in dadosMontagem | filter:search | orderBy:sortKey:reverse | itemsPerPage:5" pagination-id="prodx">
                             <td>{{ dado.ano_fabricacao }}</td>
                             <td>{{ dado.ano_modelo }}</td>
                             <td>{{ dado.cor }}</td>
@@ -60,6 +60,7 @@
                         </tr>
                     </tbody>
                 </table>                        
+                <dir-pagination-controls pagination-id="prodx" boundary-links="true" on-page-change="pageChangeHandler(newPageNumber)" template-url="view/dir_pagination.tpl.html"></dir-pagination-controls>
             </form>
 
 

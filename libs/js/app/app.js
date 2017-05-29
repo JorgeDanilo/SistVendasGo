@@ -1,1 +1,1 @@
-var app = angular.module('SisVendasGo', []);
+var app = angular.module('SisVendasGo', ['angularUtils.directives.dirPagination']);
