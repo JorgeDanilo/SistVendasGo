@@ -1,4 +1,4 @@
 # SistVendasGo
 <br>
-<img height="700" src="https://drive.google.com/file/d/0B0qbuiu5iDTOLXBtM3E5YV8tV3c/view?usp=sharing" alt="Página Inicial" />
+<img height="700" src="https://uploaddeimagens.com.br/images/000/932/660/original/index.png?1496070800" alt="Página Inicial" />
 <br>
